@@ -181,7 +181,7 @@ function Page5() {
                 </div>
 
                 <div className="pagineOptions">
-                    <Link href="/page6">
+                    <Link href="/page7">
                         <div className="buttonAvanti" >
                             <img src={avanti} className="avanti" alt="next page" />
                         </div>

@@ -1,17 +1,13 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import "@fontsource/nanum-pen-script";
-import {useDispatch, useSelector} from "react-redux"; // Defaults to weight 400.
+import { useSelector } from "react-redux";
 import withTransition from "../HOC/withTransition";
-const share = '/images/Share.svg';
 const qr = '/images/Qr.png';
 const avanti = "/images/Avanti.svg";
-const image = "/images/Image.svg";
-const fasi = "/images/Group 10.svg";
+const fasi = "/images/Group 11.svg";
 
 
-
-function Page6() {
+function Page7() {
 
     useEffect(() => {
         const root = document.documentElement
@@ -47,15 +43,11 @@ function Page6() {
         }
     }, [qrCode, qrOptions])
 
-    const onDownloadClicked = () => {
-        qrCode.download({extension : "jpeg"})
-    }
-
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
-             <div>
+            <div>
                 <div className="fase" >
-                    <img src={fasi} alt="personalization part 6"/>
+                    <img src={fasi} alt="personalization part 7" />
                 </div>
 
                 <div className="qrframe">
@@ -64,54 +56,59 @@ function Page6() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="panel">
                 <div className="guideframe">
                     <div className="guide">
-                        Scarica la tua opera
+                        Hai finito!
                     </div>
                 </div>
 
-                <div className="loadOptions">
-                    <div className="loadsx">
-                        <div>
-                            <img src={share} className="icon" alt="share"/>
+                <div className="loadconclusione">
+                    <div className="conclusione">
+                        <div className="subConc">
+                            E ora?
                         </div>
-                        <div className="loadLabel">
-                            Condividila
-                        </div>
-                    </div>
-                    <div className="loaddx" onClick={onDownloadClicked}>
-                        <div>
-                            <img src={image} className="icon" alt="save in gallery"/>
-                        </div>
-                        <div className="loadLabel">
-                            Salva in Galleria
-                        </div>
-                    </div>
-                </div>
-                <div className="consiglioFrame">
-                    <div className="consiglio">
-                        Inviatela su Whatsapp (così non la perdi)
-                    </div>
-                </div>
 
-                <div className="pagineOptions">
-                    <Link href="/page7">
-                        <div className="buttonAvanti" >
-                            <img src={avanti} className="avanti" alt="next page"/>
+                        <div className="testoConc">
+                            Non resta che usare il tuo nuovo “accessorio”
                         </div>
-                    </Link>
 
-                    <Link href="/page5">
-                        <div className="buttonIndietro" >
-                            <img src={avanti} className="indietro" alt="previous page"/>
+                        <div className="subConc">
+                            Che progetto bellissimo! Come potrò mai ripagarvi?<br />
                         </div>
-                    </Link>
+
+                        <div className="testoConc">
+                            Grazie mille! Se ci tieni a essere anche te partecipe di questo progetto, puoi offrire un
+                            caffè agli sviluppatori con il bottone qui sotto.<br />
+                        </div>
+
+                        <div className="subConc">
+                            Oppure?<br />
+                        </div>
+
+                        <div className="testoConc">
+                            Puoi condividere il progetto con un amic*! é gratis e noi siamo contenti lo stesso!
+                        </div>
+
+                    </div>
+                    <div className="pagineOptions">
+                        <Link href="/page7">
+                            <div className="buttonAvanti" >
+                                <img src={avanti} className="avanti" alt="next page" />
+                            </div>
+                        </Link>
+
+                        <Link href="/page5">
+                            <div className="buttonIndietro" >
+                                <img src={avanti} className="indietro" alt="previous page" />
+                            </div>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default withTransition(Page6);
+export default withTransition(Page7);

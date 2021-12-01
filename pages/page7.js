@@ -1,12 +1,17 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import {useSelector} from "react-redux";
+import "@fontsource/nanum-pen-script";
+import { useDispatch, useSelector } from "react-redux"; // Defaults to weight 400.
 import withTransition from "../HOC/withTransition";
+const share = '/images/Share.svg';
 const qr = '/images/Qr.png';
-const fasi = "/images/Group 11.svg";
+
+const image = "/images/Image.svg";
+const fasi = "/images/Group 10.svg";
 
 
-function Page7() {
+
+function Page6() {
 
     useEffect(() => {
         const root = document.documentElement
@@ -42,16 +47,20 @@ function Page7() {
         }
     }, [qrCode, qrOptions])
 
+    const onDownloadClicked = () => {
+        qrCode.download({ extension: "jpeg" })
+    }
+
     return (
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
             <div>
                 <div className="fase" >
-                    <img src={fasi} alt="personalization part 7"/>
+                    <img src={fasi} alt="personalization part 6" />
                 </div>
 
                 <div className="qrframe">
                     <div className="frame">
-                        <svg ref={qrPanel} viewBox="0 0 1000 1000" style={{width: 200}}/>
+                        <svg ref={qrPanel} viewBox="0 0 1000 1000" style={{ width: 200 }} />
                     </div>
                 </div>
             </div>
@@ -59,50 +68,42 @@ function Page7() {
             <div className="panel7">
                 <div className="guideframe">
                     <div className="guide">
-                        Hai finito!
+                        Scarica la tua opera
                     </div>
                 </div>
 
-                <div className="loadconclusione">
-                    <div className="conclusione">
-                        <div className="subConc">
-                            E ora?
+                <div className="loadOptions">
+                    <div className="loadsx">
+                        <div>
+                            <img src={share} className="icon" alt="share" />
                         </div>
-
-                        <div className="testoConc">
-                            Non resta che usare il tuo nuovo “accessorio”
+                        <div className="loadLabel">
+                            Condividila
                         </div>
-
-                        <div className="subConc">
-                            Che progetto bellissimo! Come potrò mai ripagarvi?<br />
-                        </div>
-
-                        <div className="testoConc">
-                            Grazie mille! Se ci tieni a essere anche te partecipe di questo progetto, puoi offrire un
-                            caffè agli sviluppatori con il bottone qui sotto.<br />
-                        </div>
-
-                        <div className="subConc">
-                            Oppure?<br />
-                        </div>
-
-                        <div className="testoConc">
-                            Puoi condividere il progetto con un amic*! é gratis e noi siamo contenti lo stesso!
-                        </div>
-
                     </div>
-
-                    <button className="caffeButtonConc">
-                        <Link href='/' className="caffe">Offrici un caffè</Link>
-                    </button>
-                    <div>
-                        <Link href='/' className="backHomeConc">Torna alla home</Link>
+                    <div className="loaddx" onClick={onDownloadClicked}>
+                        <div>
+                            <img src={image} className="icon" alt="save in gallery" />
+                        </div>
+                        <div className="loadLabel">
+                            Salva in Galleria
+                        </div>
                     </div>
-
+                </div>
+                <div className="consiglioFrame">
+                    <div className="consiglio">
+                        Inviatela su Whatsapp (così non la perdi)
+                    </div>
+                </div>
+                <button className="caffeButtonConc">
+                    <Link href='/' className="caffe">Offrici un caffè</Link>
+                </button>
+                <div style={{marginBottom: 60}}>
+                    <Link href='/'>Torna alla home</Link>
                 </div>
             </div>
         </div>
     )
 }
 
-export default withTransition(Page7);
+export default withTransition(Page6);
